@@ -50,4 +50,11 @@ as an analysis of our current implementations.
 
 # Citation
 
-TBA
+```
+@article{sun2024conceptfactory,
+  title={ConceptFactory: Facilitate 3D Object Knowledge Annotation with Object Conceptualization},
+  author={Sun, Jianhua and Li, Yuxuan and Xu, Longfei and Wang, Nange and Wei, Jiude and Zhang, Yining and Lu, Cewu},
+  journal={arXiv preprint arXiv:2411.00448},
+  year={2024}
+}
+```
