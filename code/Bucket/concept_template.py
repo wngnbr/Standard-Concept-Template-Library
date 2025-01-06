@@ -207,7 +207,7 @@ class Curved_Handle(ConceptTemplate):
         self.faces = np.concatenate(faces_list)
 
         # Global Transformation
-        self.vertices = apply_transformation(self.vertices, position, rotation, rotation_order='ZXY')
+        self.vertices = apply_transformation(self.vertices, position, rotation)
 
         self.overall_obj_mesh = trimesh.Trimesh(self.vertices, self.faces)
         self.overall_obj_pts = np.array(self.overall_obj_mesh.sample(SAMPLENUM))
