@@ -6,7 +6,7 @@ from knowledge_utils import *
 import trimesh
 
 class Semi_Spherical_Body(ConceptTemplate):
-    def __init__(self, horizontal_axis, vertical_axis, exist_angle, bottom_size, thickness, x_z_ratio, position = [0, 0, 0], rotation = [0, 0, 0]):
+    def __init__(self, horizontal_axis, vertical_axis, exist_angle, bottom_size, x_z_ratio, position = [0, 0, 0], rotation = [0, 0, 0]):
 
         # Process rotation param
         rotation = [x / 180 * np.pi for x in rotation]
@@ -18,7 +18,6 @@ class Semi_Spherical_Body(ConceptTemplate):
         self.vertical_axis = vertical_axis
         self.exist_angle = exist_angle
         self.bottom_size = bottom_size
-        self.thickness = thickness
         self.x_z_ratio = x_z_ratio
 
         # Instantiate component geometries
@@ -70,7 +69,7 @@ class Semi_Spherical_Body(ConceptTemplate):
 
 
 class Spherical_Cylindrical_Body(ConceptTemplate):
-    def __init__(self, horizontal_axis, vertical_axis, exist_angle, bottom_size, thickness, x_z_ratio, position = [0, 0, 0], rotation = [0, 0, 0]):
+    def __init__(self, horizontal_axis, vertical_axis, exist_angle, bottom_size, x_z_ratio, position = [0, 0, 0], rotation = [0, 0, 0]):
 
         # Process rotation param
         rotation = [x / 180 * np.pi for x in rotation]
@@ -82,7 +81,6 @@ class Spherical_Cylindrical_Body(ConceptTemplate):
         self.vertical_axis = vertical_axis
         self.exist_angle = exist_angle
         self.bottom_size = bottom_size
-        self.thickness = thickness
         self.x_z_ratio = x_z_ratio
 
         # Instantiate component geometries
@@ -499,7 +497,7 @@ class Round_U_Handle(ConceptTemplate):
             vertical_length[0], 
             0
         ]
-        curve_mesh_rotation = [0, np.pi / 2, 0]
+        curve_mesh_rotation = [-np.pi / 2, np.pi / 2, 0]
         self.curve_mesh = Torus(vertical_separation[0] / 2, mounting_radius[0], np.pi,
                                 position=curve_mesh_position,
                                 rotation=curve_mesh_rotation)
@@ -557,8 +555,8 @@ class Flat_U_Handle(ConceptTemplate):
         faces_list.append(self.right_mesh.faces + total_num_vertices)
         total_num_vertices += len(self.right_mesh.vertices)
 
-        outer_radius = (vertical_separation[0] + vertical_size[0]) / 2
-        mounting_radius = (vertical_separation[0] - vertical_size[0]) / 2
+        outer_radius = (vertical_separation[0] + vertical_size[2]) / 2
+        mounting_radius = (vertical_separation[0] - vertical_size[2]) / 2
         curve_mesh_position = [
             0, 
             vertical_size[1], 
@@ -668,7 +666,7 @@ class Straight_Spout(ConceptTemplate):
 
 
 class Curved_Spout(ConceptTemplate):
-    def __init__(self, central_radius, exist_angle, torus_radius, thickness, position = [0, 0, 0], rotation = [0, 0, 0]):
+    def __init__(self, central_radius, exist_angle, torus_radius, position = [0, 0, 0], rotation = [0, 0, 0]):
 
         # Process rotation param
         rotation = [x / 180 * np.pi for x in rotation]
@@ -679,7 +677,6 @@ class Curved_Spout(ConceptTemplate):
         self.central_radius = central_radius
         self.exist_angle = exist_angle
         self.torus_radius = torus_radius
-        self.thickness = thickness
 
         # Instantiate component geometries
         vertices_list = []
