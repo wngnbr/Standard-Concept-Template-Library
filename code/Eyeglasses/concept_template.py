@@ -479,7 +479,7 @@ class Regular_Leg(ConceptTemplate):
         faces_list = []
         total_num_vertices = 0
 
-        leg_interval = offset_x[0] * 2 + glass_interval
+        leg_interval = offset_x[0] * 2 + glass_interval[0]
 
         for direction in [-1, 1]:
             tmp_meshes = []
@@ -558,7 +558,7 @@ class Trifold_Leg(ConceptTemplate):
         faces_list = []
         total_num_vertices = 0
 
-        leg_interval = offset_x[0] * 2 + glass_interval
+        leg_interval = offset_x[0] * 2 + glass_interval[0]
 
         for direction in [-1, 1]:
             tmp_meshes = []
