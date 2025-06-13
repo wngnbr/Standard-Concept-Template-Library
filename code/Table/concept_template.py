@@ -1358,6 +1358,7 @@ class Regular_cabinet(ConceptTemplate):
 
         # top cabinet
         for cabinet_idx in range(self.number_of_top_cabinet):
+            actual_idx = cabinet_idx
             cabinet_body_mesh = 5
             layers_mesh = number_of_layers[cabinet_idx]
             cabinet_doors_mesh = sum(2 for type_of_space in self.type_of_spaces[cabinet_idx] if type_of_space == 2)
