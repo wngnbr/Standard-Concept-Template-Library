@@ -482,8 +482,8 @@ class Middle_Curved_Handle(ConceptTemplate):
         behind_1_mesh_rotation = [0, -handle_rotation[2], 0]
         behind_1_mesh_position_1 = adjust_position_from_rotation(behind_1_mesh_position_1, behind_1_mesh_rotation)
 
-        curve_offset_x = middle_size[1] * (1 - np.cos(exist_angle))
-        curve_offset_z = middle_size[1] * np.sin(exist_angle)
+        curve_offset_x = middle_size[1] * (1 - np.cos(exist_angle[0]))
+        curve_offset_z = middle_size[1] * np.sin(exist_angle[0])
         middle_offset_x  = curve_offset_x * np.cos(handle_rotation[1]) - curve_offset_z * np.sin(handle_rotation[1])
         middle_offset_z  = curve_offset_x * np.sin(handle_rotation[1]) + curve_offset_z * np.cos(handle_rotation[1])
         behind_1_mesh_position_2 = [
@@ -557,8 +557,8 @@ class Middle_Curved_Handle(ConceptTemplate):
         behind_2_mesh_rotation = [0, handle_rotation[2], 0]
         behind_2_mesh_position_1 = adjust_position_from_rotation(behind_2_mesh_position_1, behind_2_mesh_rotation)
 
-        curve_offset_x = middle_size[1] * (1 - np.cos(exist_angle))
-        curve_offset_z = middle_size[1] * np.sin(exist_angle)
+        curve_offset_x = middle_size[1] * (1 - np.cos(exist_angle[0]))
+        curve_offset_z = middle_size[1] * np.sin(exist_angle[0])
         middle_offset_x  = curve_offset_x * np.cos(handle_rotation[1]) - curve_offset_z * np.sin(handle_rotation[1])
         middle_offset_z  = curve_offset_x * np.sin(handle_rotation[1]) + curve_offset_z * np.cos(handle_rotation[1])
         behind_2_mesh_position_2 = [
