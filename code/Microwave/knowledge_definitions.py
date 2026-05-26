@@ -133,26 +133,26 @@ def grasp_poses(obj, num):
     elif (isinstance(obj, Curve_Handle)):
         RT = transformation_matrix(obj.position, obj.rotation)
 
-        curve_z_offset = obj.bottom_size[2] - np.sqrt(obj.curve_size[1]**2 - (obj.bottom_seperation[0] / 2)**2)
-        
+        curve_z_offset = -obj.curve_size[0] * np.cos(obj.curve_exist_angle[0] / 2)
+
         for angle_ratio in np.random.random(num):
             init_pose = np.eye(4)
             init_pose[:3, -1] = np.array([0,
-                                          np.sin(angle_ratio - 0.5) * obj.curve_size[0],
-                                          np.cos(angle_ratio - 0.5) * obj.curve_size[0] + curve_z_offset])
+                                            np.sin((angle_ratio-0.5)*obj.curve_exist_angle[0]) * obj.curve_size[0],
+                                            np.cos((angle_ratio-0.5)*obj.curve_exist_angle[0]) * obj.curve_size[0] + curve_z_offset])
             grasp_pose = RT @ init_pose
             grasp_poses.append(grasp_pose)
 
     elif (isinstance(obj, Trifold_Curve_Handle)):
         RT = transformation_matrix(obj.position, obj.rotation)
         
-        curve_z_offset = obj.bottom_size[2] - np.sqrt(obj.curve_size[1]**2 - (obj.bottom_seperation[0] / 2)**2)
+        curve_z_offset = obj.mounting_size[2] - np.sqrt(obj.curve_size[1]**2 - (obj.mounting_seperation[0] / 2)**2)
 
         for angle_ratio in np.random.random(num):
             init_pose = np.eye(4)
             init_pose[:3, -1] = np.array([0,
-                                          np.sin(angle_ratio - 0.5) * obj.curve_size[0],
-                                          np.cos(angle_ratio - 0.5) * obj.curve_size[0] + curve_z_offset])
+                                            np.sin((angle_ratio-0.5)*obj.curve_exist_angle[0]) * obj.curve_size[0],
+                                            np.cos((angle_ratio-0.5)*obj.curve_exist_angle[0]) * obj.curve_size[0] + curve_z_offset])
             grasp_pose = RT @ init_pose
             grasp_poses.append(grasp_pose)
     
